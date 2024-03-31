@@ -6,7 +6,7 @@ import uuid
 
 # Example data
 menu_items = [
-    food_ordering_pb2.MenuItem(id="1", name="Pizza", price=90.99),
+    # food_ordering_pb2.MenuItem(id="1", name="Pizza", price=90.99),
     food_ordering_pb2.MenuItem(id="2", name="Burger", price=98.99),
     # food_ordering_pb2.MenuItem(id="3", name="Salad", price=90),
     food_ordering_pb2.MenuItem(id="3", name="Pasta", price=80.99),
