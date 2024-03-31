@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package foodordering;
+
+// The food ordering service definition.
+service FoodOrdering {
+  // Retrieves the menu
+  rpc GetMenu (GetMenuRequest) returns (MenuResponse) {}
+  // Places an order
+  rpc PlaceOrder (PlaceOrderRequest) returns (OrderResponse) {}
+  // Lists all orders
+  rpc ListOrders (ListOrdersRequest) returns (ListOrdersResponse) {}
+}
+
+// A menu item
+message MenuItem {
+  string id = 1;
+  string name = 2;
+  float price = 3;
+}
+
+// Request message for GetMenu
+message GetMenuRequest {}
+
+// Response message for GetMenu
+message MenuResponse {
+  repeated MenuItem items = 1;
+}
+
+// Request message for PlaceOrder
+message PlaceOrderRequest {
+  repeated string item_ids = 1;
+}
+
+// Response message for PlaceOrder
+message OrderResponse {
+  string order_id = 1;
+  float total_price = 2;
+}
+
+// Request message for ListOrders
+message ListOrdersRequest {}
+
+// An individual order
+message Order {
+  string order_id = 1;
+  repeated MenuItem items = 2;
+  float total_price = 3;
+}
+
+// Response message for ListOrders
+message ListOrdersResponse {
+  repeated Order orders = 1;
+}
